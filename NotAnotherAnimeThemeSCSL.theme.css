@@ -198,4 +198,78 @@
   --reaction-emoji-border-color: 1px solid transparent;
   --reaction-emoji-hover-background-color: rgba(255, 255, 255, 0.1);
   --reaction-emoji-hover-border-color: rgba(255, 255, 255, 0.2);
+
+  /*
+    ===== Discord 2025 token bridge =====
+    Makes new pages (Friends / Active Now / Shop / etc.) match NAAT
+  */
+  --background-primary: var(--theme-transparency);
+  --background-secondary: var(--theme-transparency);
+  --background-secondary-alt: var(--theme-transparency);
+  --background-tertiary: var(--theme-transparency);
+  --background-floating: rgba(0, 0, 0, 0.8);
+  --modal-background: rgba(0, 0, 0, 0.6);
+  --modal-footer-background: rgba(0, 0, 0, 0.6);
+  --channeltextarea-background: rgba(0, 0, 0, 0.45);
+  --input-background: rgba(0, 0, 0, 0.35);
+  --activity-card-background: rgba(0, 0, 0, 0.5);
+
+  /*
+    Card shadows / borders
+  */
+  --elevation-stroke: 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --elevation-low: 0 1px 0 rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.12);
+  --elevation-medium: 0 8px 16px rgba(0, 0, 0, 0.24);
+  --elevation-high: 0 12px 28px rgba(0, 0, 0, 0.35);
+
+  /*
+    Brand accents -> your theme color
+  */
+  --brand-500: var(--main-theme-color);
+  --brand-560: var(--main-theme-color);
+  --brand-experiment: var(--main-theme-color);
+
+  /*
+    Text / interactive colors
+  */
+  --interactive-active: #fff;
+  --interactive-hover: #dcddde;
+  --interactive-normal: #b9bbbe;
+  --interactive-muted: #6b6f78;
 }
+
+/* ===== Styling of new panes/cards that aren't in base NAAT ===== */
+
+/* Friends/Home main columns and Active Now sidebar */
+[class*="peopleColumn"],
+[class*="homeContainer"],
+[class*="nowPlayingColumn"] {
+  background: transparent !important;
+}
+
+/* Friend list cards, Active Now cards, etc */
+[class*="peopleList"] [class*="section"],
+[class*="peopleList"] [class*="item"],
+[class*="nowPlayingColumn"] [class*="card"],
+[class*="nowPlayingColumn"] [class*="wrapper"],
+[class*="activityPanel"] [class*="card"],
+[class*="container"] [class*="card"] {
+  background: rgba(0, 0, 0, 0.45) !important;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+}
+
+/* Top search bar / filter pills on Friends page */
+[class*="searchBar"] [class*="inner"],
+[class*="tabBar"] [class*="item"] {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+
+/* Optional: hide Active Now sidebar completely
+*[class^="nowPlayingColumn"], *[class*="activeNow"] {
+  display: none !important;
+}
+*/
