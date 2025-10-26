@@ -198,56 +198,61 @@
   --reaction-emoji-border-color: 1px solid transparent;
   --reaction-emoji-hover-background-color: rgba(255, 255, 255, 0.1);
   --reaction-emoji-hover-border-color: rgba(255, 255, 255, 0.2);
-
-  /*
-    ===== Discord 2025 token bridge =====
-    Makes new pages (Friends / Active Now / Shop / etc.) match NAAT
-  */
-  --background-primary: var(--theme-transparency);
-  --background-secondary: var(--theme-transparency);
-  --background-secondary-alt: var(--theme-transparency);
-  --background-tertiary: var(--theme-transparency);
-  --background-floating: rgba(0, 0, 0, 0.8);
-  --modal-background: rgba(0, 0, 0, 0.6);
-  --modal-footer-background: rgba(0, 0, 0, 0.6);
-  --channeltextarea-background: rgba(0, 0, 0, 0.45);
-  --input-background: rgba(0, 0, 0, 0.35);
-  --activity-card-background: rgba(0, 0, 0, 0.5);
-
-  /*
-    Card shadows / borders
-  */
-  --elevation-stroke: 0 0 0 1px rgba(255, 255, 255, 0.06);
-  --elevation-low: 0 1px 0 rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.12);
-  --elevation-medium: 0 8px 16px rgba(0, 0, 0, 0.24);
-  --elevation-high: 0 12px 28px rgba(0, 0, 0, 0.35);
-
-  /*
-    Brand accents -> your theme color
-  */
-  --brand-500: var(--main-theme-color);
-  --brand-560: var(--main-theme-color);
-  --brand-experiment: var(--main-theme-color);
-
-  /*
-    Text / interactive colors
-  */
-  --interactive-active: #fff;
-  --interactive-hover: #dcddde;
-  --interactive-normal: #b9bbbe;
-  --interactive-muted: #6b6f78;
 }
 
-/* ===== Styling of new panes/cards that aren't in base NAAT ===== */
+/* =========================================
+   Discord 2025 token overrides
+   Forces new UI surfaces (Friends tab, Active Now,
+   member list sidebars, etc.) to match NAAT
+   ========================================= */
 
-/* Friends/Home main columns and Active Now sidebar */
+.theme-dark,
+.theme-light,
+#app-mount {
+  /* shared panel backgrounds */
+  --background-primary: var(--theme-transparency) !important;
+  --background-secondary: var(--theme-transparency) !important;
+  --background-secondary-alt: var(--theme-transparency) !important;
+  --background-tertiary: var(--theme-transparency) !important;
+  --background-floating: rgba(0, 0, 0, 0.8) !important;
+
+  /* modals / popouts / inputs */
+  --modal-background: rgba(0, 0, 0, 0.6) !important;
+  --modal-footer-background: rgba(0, 0, 0, 0.6) !important;
+  --channeltextarea-background: rgba(0, 0, 0, 0.45) !important;
+  --input-background: rgba(0, 0, 0, 0.35) !important;
+  --activity-card-background: rgba(0, 0, 0, 0.5) !important;
+
+  /* subtle borders/shadows so cards still stand out */
+  --elevation-stroke: 0 0 0 1px rgba(255, 255, 255, 0.06) !important;
+  --elevation-low: 0 1px 0 rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.12) !important;
+  --elevation-medium: 0 8px 16px rgba(0, 0, 0, 0.24) !important;
+  --elevation-high: 0 12px 28px rgba(0, 0, 0, 0.35) !important;
+
+  /* Discord accent -> your accent */
+  --brand-500: var(--main-theme-color) !important;
+  --brand-560: var(--main-theme-color) !important;
+  --brand-experiment: var(--main-theme-color) !important;
+
+  /* interactive text/icon states */
+  --interactive-active: #fff !important;
+  --interactive-hover: #dcddde !important;
+  --interactive-normal: #b9bbbe !important;
+  --interactive-muted: #6b6f78 !important;
+}
+
+/* =========================================
+   Friends list / Home social hub / Active Now column
+   ========================================= */
+
+/* big columns (friends list area, home hub, now playing sidebar) */
 [class*="peopleColumn"],
 [class*="homeContainer"],
 [class*="nowPlayingColumn"] {
   background: transparent !important;
 }
 
-/* Friend list cards, Active Now cards, etc */
+/* friend rows, now playing cards, activity cards, etc. */
 [class*="peopleList"] [class*="section"],
 [class*="peopleList"] [class*="item"],
 [class*="nowPlayingColumn"] [class*="card"],
@@ -260,7 +265,7 @@
   border-radius: 12px;
 }
 
-/* Top search bar / filter pills on Friends page */
+/* search bar + tab pills (Online / All / Pending / etc) */
 [class*="searchBar"] [class*="inner"],
 [class*="tabBar"] [class*="item"] {
   background: rgba(255, 255, 255, 0.06) !important;
@@ -268,8 +273,42 @@
   border-radius: 8px;
 }
 
-/* Optional: hide Active Now sidebar completely
-*[class^="nowPlayingColumn"], *[class*="activeNow"] {
+/* uncomment to hide Active Now column completely */
+/*
+*[class^="nowPlayingColumn"],
+*[class*="activeNow"] {
   display: none !important;
+}
+*/
+
+/* =========================================
+   Server member list styling (right sidebar in servers)
+   ========================================= */
+
+/* entire members sidebar background */
+[class*="membersWrap"] {
+  background: transparent !important;
+}
+
+/* each user row */
+[class*="member"] {
+  background-color: transparent !important;
+}
+
+/* hover effect on each user row in member list */
+[class*="member"]:hover {
+  background-color: rgba(0, 0, 0, 0.45) !important;
+  backdrop-filter: blur(4px);
+  border-radius: 8px;
+}
+
+/* =========================================
+   (Optional) server list / guilds bar tweaks
+   If your far-left server bar ever turns solid,
+   uncomment below to force glass again.
+========================================= */
+/*
+[class*="guilds"] {
+  background: transparent !important;
 }
 */
