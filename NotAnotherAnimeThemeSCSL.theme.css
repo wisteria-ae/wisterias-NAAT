@@ -352,14 +352,20 @@ textarea[class*="inputDefault"]::placeholder {
   color: rgba(255,255,255,0.6) !important;
 }
 
-/* Force Profile Settings action buttons (Change Avatar, Change Decoration, etc.) to purple */
-button[class*="colorGreen"],
-button[class*="colorBrand"],
-button[class*="colorPrimary"],
-button[class*="lookFilled"],
-button[class*="lookOutlined"],
-button[class*="lookGhost"],
-button[class*="lookLink"] {
+/* Scoped button overrides:
+   Only style buttons INSIDE the profile customization sections.
+   This avoids recoloring bottom-left HUD, + channel button, etc.
+*/
+[class*="customizationSection"] button[class*="color"],
+[class*="customizationSection"] button[class*="lookFilled"],
+[class*="customizationSection"] button[class*="lookOutlined"],
+[class*="customizationSection"] button[class*="lookGhost"],
+[class*="customizationSection"] button[class*="lookLink"],
+[class*="accountProfileCard"] button[class*="color"],
+[class*="accountProfileCard"] button[class*="lookFilled"],
+[class*="accountProfileCard"] button[class*="lookOutlined"],
+[class*="accountProfileCard"] button[class*="lookGhost"],
+[class*="accountProfileCard"] button[class*="lookLink"] {
   background: #8f7ac9 !important;           /* muted purple */
   color: #fff !important;
   border-radius: 8px !important;
@@ -367,26 +373,32 @@ button[class*="lookLink"] {
   box-shadow: 0 4px 12px rgba(0,0,0,0.6) !important;
 }
 
-/* Hover brighten */
-button[class*="colorGreen"]:hover,
-button[class*="colorBrand"]:hover,
-button[class*="colorPrimary"]:hover,
-button[class*="lookFilled"]:hover,
-button[class*="lookOutlined"]:hover,
-button[class*="lookGhost"]:hover,
-button[class*="lookLink"]:hover {
+/* Hover state for those same profile buttons */
+[class*="customizationSection"] button[class*="color"]:hover,
+[class*="customizationSection"] button[class*="lookFilled"]:hover,
+[class*="customizationSection"] button[class*="lookOutlined"]:hover,
+[class*="customizationSection"] button[class*="lookGhost"]:hover,
+[class*="customizationSection"] button[class*="lookLink"]:hover,
+[class*="accountProfileCard"] button[class*="color"]:hover,
+[class*="accountProfileCard"] button[class*="lookFilled"]:hover,
+[class*="accountProfileCard"] button[class*="lookOutlined"]:hover,
+[class*="accountProfileCard"] button[class*="lookGhost"]:hover,
+[class*="accountProfileCard"] button[class*="lookLink"]:hover {
   background: #a895e6 !important;           /* lighter lavender on hover */
   color: #fff !important;
   border-color: rgba(255,255,255,0.25) !important;
 }
 
-/* Make sure inner text/icons inside those buttons stay white */
-button[class*="colorGreen"] *,
-button[class*="colorBrand"] *,
-button[class*="colorPrimary"] *,
-button[class*="lookFilled"] *,
-button[class*="lookOutlined"] *,
-button[class*="lookGhost"] *,
-button[class*="lookLink"] * {
+/* Inner text/icons inside those profile buttons stay white */
+[class*="customizationSection"] button[class*="color"] *,
+[class*="customizationSection"] button[class*="lookFilled"] *,
+[class*="customizationSection"] button[class*="lookOutlined"] *,
+[class*="customizationSection"] button[class*="lookGhost"] *,
+[class*="customizationSection"] button[class*="lookLink"] *,
+[class*="accountProfileCard"] button[class*="color"] *,
+[class*="accountProfileCard"] button[class*="lookFilled"] *,
+[class*="accountProfileCard"] button[class*="lookOutlined"] *,
+[class*="accountProfileCard"] button[class*="lookGhost"] *,
+[class*="accountProfileCard"] button[class*="lookLink"] * {
   color: #fff !important;
 }
