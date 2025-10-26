@@ -327,3 +327,53 @@
   background: transparent !important;
 }
 */
+/* =============================
+   Profile Settings polish
+   (User Settings → Profiles)
+   ============================= */
+
+/* Text inputs like Pronouns, Bio, etc. */
+[class*="inputWrapper"],
+[class*="inputDefault"],
+[class*="inputInner"],
+textarea[class*="inputDefault"] {
+  background-color: rgba(0, 0, 0, 0.45) !important;
+  backdrop-filter: blur(4px);
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5) !important;
+}
+
+/* Make placeholder text readable but softer */
+[class*="inputDefault"]::placeholder,
+textarea[class*="inputDefault"]::placeholder {
+  color: rgba(255,255,255,0.6) !important;
+}
+
+/* Buttons like "Change Avatar", "Change Decoration", "Change Nameplate", etc. */
+button[class*="lookFilled"],
+button[class*="lookOutlined"],
+button[class*="lookLink"] {
+  background-color: #8f7ac9 !important;        /* muted purple accent */
+  color: #fff !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6) !important;
+}
+
+/* On hover, slightly brighten */
+button[class*="lookFilled"]:hover,
+button[class*="lookOutlined"]:hover,
+button[class*="lookLink"]:hover {
+  background-color: #a895e6 !important;        /* lighter lavender on hover */
+  color: #fff !important;
+  border-color: rgba(255,255,255,0.25) !important;
+}
+
+/* Make sure the little text inside buttons (like "Mark as Read" style spans) is white */
+button[class*="lookFilled"] *,
+button[class*="lookOutlined"] *,
+button[class*="lookLink"] * {
+  color: #fff !important;
+}
