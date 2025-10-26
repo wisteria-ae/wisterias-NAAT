@@ -155,8 +155,8 @@
   --unread-message-divider-font-color: #fff;
 
   /*
-    Legacy New Messages Bar (not always used in new UI)
-    We'll override the actual bar below anyway
+    Legacy New Messages Bar variables
+    (We override the actual bar in CSS below anyway)
   */
   --new-messages-bar-background-color: #8f7ac9;
   --new-messages-bar-font-color: #fff;
@@ -201,7 +201,7 @@
   --reaction-emoji-hover-border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Pleasant muted purple new-messages / jump bar */
+/* Pleasant muted purple "new messages" / "jump to present" bar */
 [class*="newMessagesBar"],
 [class*="jumpToPresentBar"] {
   background-color: #8f7ac9 !important; /* light/muted purple */
@@ -209,7 +209,7 @@
   border-radius: 6px !important;
 }
 
-/* Make sure its inner text ("Mark as Read", timestamp, etc.) stays white */
+/* Make sure its inner text/icons ("Mark as Read", timestamp, etc.) stay white */
 [class*="newMessagesBar"] *,
 [class*="jumpToPresentBar"] * {
   color: #fff !important;
@@ -327,6 +327,7 @@
   background: transparent !important;
 }
 */
+
 /* =============================
    Profile Settings polish
    (User Settings → Profiles)
@@ -351,29 +352,41 @@ textarea[class*="inputDefault"]::placeholder {
   color: rgba(255,255,255,0.6) !important;
 }
 
-/* Buttons like "Change Avatar", "Change Decoration", "Change Nameplate", etc. */
+/* Force Profile Settings action buttons (Change Avatar, Change Decoration, etc.) to purple */
+button[class*="colorGreen"],
+button[class*="colorBrand"],
+button[class*="colorPrimary"],
 button[class*="lookFilled"],
 button[class*="lookOutlined"],
+button[class*="lookGhost"],
 button[class*="lookLink"] {
-  background-color: #8f7ac9 !important;        /* muted purple accent */
+  background: #8f7ac9 !important;           /* muted purple */
   color: #fff !important;
   border-radius: 8px !important;
   border: 1px solid rgba(255,255,255,0.15) !important;
   box-shadow: 0 4px 12px rgba(0,0,0,0.6) !important;
 }
 
-/* On hover, slightly brighten */
+/* Hover brighten */
+button[class*="colorGreen"]:hover,
+button[class*="colorBrand"]:hover,
+button[class*="colorPrimary"]:hover,
 button[class*="lookFilled"]:hover,
 button[class*="lookOutlined"]:hover,
+button[class*="lookGhost"]:hover,
 button[class*="lookLink"]:hover {
-  background-color: #a895e6 !important;        /* lighter lavender on hover */
+  background: #a895e6 !important;           /* lighter lavender on hover */
   color: #fff !important;
   border-color: rgba(255,255,255,0.25) !important;
 }
 
-/* Make sure the little text inside buttons (like "Mark as Read" style spans) is white */
+/* Make sure inner text/icons inside those buttons stay white */
+button[class*="colorGreen"] *,
+button[class*="colorBrand"] *,
+button[class*="colorPrimary"] *,
 button[class*="lookFilled"] *,
 button[class*="lookOutlined"] *,
+button[class*="lookGhost"] *,
 button[class*="lookLink"] * {
   color: #fff !important;
 }
