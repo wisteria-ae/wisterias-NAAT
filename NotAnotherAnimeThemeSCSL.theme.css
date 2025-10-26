@@ -149,15 +149,16 @@
   --scrollbar-color: rgba(200, 200, 200, 0.2);
 
   /*
-    Unread Message Divider
+    Unread Message Divider ("NEW" line in chat history)
   */
   --unread-message-divider-color: #f04747;
   --unread-message-divider-font-color: #fff;
 
   /*
-    New Messages Bar Color
+    Legacy New Messages Bar (not always used in new UI)
+    We'll override the actual bar below anyway
   */
-  --new-messages-bar-background-color: #7289da;
+  --new-messages-bar-background-color: #8f7ac9;
   --new-messages-bar-font-color: #fff;
 
   /*
@@ -198,6 +199,20 @@
   --reaction-emoji-border-color: 1px solid transparent;
   --reaction-emoji-hover-background-color: rgba(255, 255, 255, 0.1);
   --reaction-emoji-hover-border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Pleasant muted purple new-messages / jump bar */
+[class*="newMessagesBar"],
+[class*="jumpToPresentBar"] {
+  background-color: #8f7ac9 !important; /* light/muted purple */
+  color: #fff !important;
+  border-radius: 6px !important;
+}
+
+/* Make sure its inner text ("Mark as Read", timestamp, etc.) stays white */
+[class*="newMessagesBar"] *,
+[class*="jumpToPresentBar"] * {
+  color: #fff !important;
 }
 
 /* =========================================
